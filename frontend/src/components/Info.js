@@ -19,11 +19,6 @@ export default function Info(props){
         return "Create Page";
     }
 
-    useEffect(() => {
-        console.log("ran")
-        return () => console.log("clean up")
-    })
-
     return( 
     <div>
         <div>
@@ -32,8 +27,8 @@ export default function Info(props){
         <div>
             {page === pages.JOIN? joinInfo(): createInfo()}
             <div>
-                <button onClick={setPage(pages.JOIN)}></button>
-                <button onClick={setPage(pages.CREATE)}></button>
+                <button onClick={() => setPage(pages.JOIN)}>Join</button>
+                <button onClick={() => setPage(pages.CREATE)}>Create</button>
             </div>
         </div>
         <div>

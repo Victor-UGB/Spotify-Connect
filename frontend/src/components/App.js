@@ -5,6 +5,7 @@ import Homepage from "./Homepage";
 import RomeJoinPage from "./RoomJoinPage";
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import '../../static/css/index.css';
+import '../index.css'
 
 export default class App extends Component{
     constructor(props){

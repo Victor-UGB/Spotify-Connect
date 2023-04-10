@@ -4,6 +4,8 @@ import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
 import Info from "./Info";
+import '../../static/css/index.css';
+import '../index.css';
 import withRouter from "./withRouter";
 
 
@@ -33,7 +35,7 @@ class Homepage extends Component{
                     <h1>Connect</h1>
                 </div>
                 <div>
-                    <div>
+                    <div className="bg-red">
                         <Link to="/join">
                         <button >Join a Room</button>
                         </Link>
