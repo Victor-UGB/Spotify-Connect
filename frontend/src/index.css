@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slide-in{
+    animation: slide-through 2s infinite;
+    transition: transform 2s linear 1s;
+}
+
+.slide-in-stay{
+    animation: slide-through-stay 1s;
+    transition: transform 1s linear 1s;
+}
+
+.slide-out{
+    animation: slide-out 2s;
+    transition: transform 2s linear 1s;
+}
+
+.slide-left-stay{
+    animation: slide-left-stay 1s;
+    transform: transform 1s linear 1s;
+}
+
+@keyframes slide-through{
+    0%{
+        transform: translateY(-50%);
+        opacity: .4;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-through-stay{
+    0%{
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left-stay{
+    0%{
+        transform: translateX(-20%);
+        opacity: .2;
+    }
+    50%{
+        transform: translateX(0);
+        opacity: .8;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out{
+    0%{
+        transform: translateY(-50%);
+        opacity: 0;
+        display: none;
+    }
+    50%{
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    100%{
+        display: none;
+    }
+}
