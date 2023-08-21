@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production "
+    "build": "webpack build --output public "
   },
   "keywords": [],
   "author": "",
@@ -36,3 +36,4 @@
     "react-router-dom": "^6.8.1"
   }
 }
+
