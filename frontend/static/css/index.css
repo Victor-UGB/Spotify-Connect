@@ -2,20 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --primary-color: #3478db;
+    --font-size: 16px;
+    --primary-font: 'Arial', sans-serif;
+    --secondary-font: 'Helvetica', sans-serif;
+    --text-primary:'#dfdfdf';
+}
+
 html, body{
     height: 100%;
     margin: 0;
     padding: 0;
     color: rgb(1, 26, 1);
+    background-color: white;
+    font-family: var(--secondary-font);
 }
 
 #main{
-    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(38, 38, 38);
+}
+
+.homepage-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+h1{
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+.page-body{
+    padding: 1rem;
+}
+
+.page-title{
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.form-input{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.form-input input{
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: #dfdfdf solid 2px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: var(--text-primary);
+}
+.form-input label{
+    padding: 1rem .4rem;
+    padding-bottom: .3rem;
+}
+
+.form-radio-container{
+    padding: 1rem;
+    border: whitesmoke solid 2px;
+    border-radius: 10px;
+}
+
+.form-radio-input{
+    display: flex;
+    gap: .5rem;
+    padding: .8rem 0rem;
+    grid-template-columns: repeat(2 minmax(0, 1fr));
+    grid-template-rows: repeat(1 minmax(0, 1fr));
+}
+
+form button{
+    background-color: var(--primary-color);
+    display: flex;
+    width: 100%;
+    color: var(--text-primary);
+    border-radius: 10px;
+    margin: 1rem 0rem;
+    padding: 1rem;
+    font-size: medium;
+    border:none;
+}
+
+.homepage-grid div button{
+    height: 20vh;
+    width: 100%;
+    padding: 1rem;
+    font-size:medium;
+    font-weight: 800;
+    border-radius: 1rem;
+    background-color: transparent;
+    /* background-color: #1f1f1f;
+    background: linear-gradient(to bottom right, #1f1f1f, #2b2168); */
+    color: #dfdfdf;
+    border: whitesmoke solid 1px;
+}
+
+.homepage{
     height: 100%;
     width: 100%;
     left: 4rem;
     top: 300px;
+}
 
+.mediaplayer-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-icon-btns{
+    border: none;
+    background-color: transparent;
+    padding: none;
+}
+
+.react-icon-mediaplayer{
+    height: 3rem;
+    width: 3rem;
+    color: whitesmoke;
+}
+
+.leave-room-button{
+    width: 100%;
+    background-color: red;
+    color: var(--text-primary);
+    padding: .8rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: medium;
 }
 
 #app{

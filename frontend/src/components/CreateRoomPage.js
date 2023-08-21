@@ -107,11 +107,11 @@ class CreateRoomPage extends Component{
 
     renderCreateButtons(){
         return (
-            <div>
+            <div className="bg-red-500">
                 <button type="submit" onClick={this.handleRoomButtonPressed} >
                     Create Room
                 </button>
-                <button type="submit">
+                <button type="submit" style={{backgroundColor: "red",}}>
                     Back
                 </button>
             </div>
@@ -140,48 +140,32 @@ class CreateRoomPage extends Component{
     }
 
     render(){
-        const title = this.props.update ? "Update Room" : "Create A Room" 
+        const title = this.props.update ? "Update room" : "Configure room" 
         
         return(
-            <div className="align-center  text-center font-extrabold">
+            <div className="align-center page-body text-center font-extrabold">
                 {this.renderNotice(this.state.successMsg)}
-                <div className="text-2xl bg-slate-500" >
+                <h1 className="text-2xl bg-slate-500 page-title " >
                     {title}
-                </div>
-                {/* <div>
-                    <Listbox></Listbox>
-                    <RadioGroup value= {this.state.selected} onChange="">
-                        <RadioGroup.Label>Server Size</RadioGroup.Label>
-                        <RadioGroup.Option value="business" >
-                            {({checked}) => (<span className={checked? 'bg-blue-200' : ''}>Business</span>)}
-                        </RadioGroup.Option>
-                        <RadioGroup.Option value="startup">
-                            {({checked}) => (<span className={checked? 'bg-blue-200' : ''}>Start up</span>)}
-                        </RadioGroup.Option>
-                        <RadioGroup.Option value="enterprise">
-                            {({checked}) => (<span className={checked? 'bg-blue-200' : ''}>Enterprise</span>)}
-                        </RadioGroup.Option>
-                    </RadioGroup>
-                </div> */}
-                <div>
+                </h1>
+                <div className="" style={{paddingBlock: "1rem"}}>
                     <form>
-                        <div>
-                            <label>
-                                <input type="radio" value = "true" color="blue" name="musicControl" checked={this.state.guestCanPause === "true"} onChange ={this.handleGuestCanPauseChange}/>
-                                Play/Pause
-                            </label>
+                        <div className="form-radio-container">
+                            <div style={{fontWeight: "900", paddingInline:".5rem",}}>Member control</div>
+                            <div className="form-radio-input">
+                                    <input type="radio" value = "true" color="blue" name="musicControl" checked={this.state.guestCanPause === "true"} onChange ={this.handleGuestCanPauseChange}/>
+                                <label>
+                                    Play/Pause
+                                </label>
+                            </div>
+                            <div className="form-radio-input">
+                                    <input type="radio" value = "false" color="red" name="musicControl" checked={this.state.guestCanPause === "false"} onChange ={this.handleGuestCanPauseChange}/>
+                                <label>
+                                    No Control
+                                </label>
+                            </div>
                         </div>
-                        <div>
-                            <label>
-                                <input type="radio" value = "false" color="red" name="musicControl" checked={this.state.guestCanPause === "false"} onChange ={this.handleGuestCanPauseChange}/>
-                                No Control
-                            </label>
-                        </div>
-                        <div>
-                        Selected option is : {this.state.guestCanPause}
-                        </div>
-                        <div>
-                            <label>
+                        <div className="form-input">
                                 <input 
                                     type="number" 
                                     required="true" 
@@ -189,6 +173,7 @@ class CreateRoomPage extends Component{
                                     min="1" 
                                     onChange={this.handleVotesChange}
                                 />
+                            <label>
                                 Votes Required to Skip
                             </label>
                         </div>

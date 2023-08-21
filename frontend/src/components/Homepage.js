@@ -30,11 +30,13 @@ class Homepage extends Component{
     }
     renderHomepage(){
         return(
-            <div>
-                <div>
-                    <h1>Connect</h1>
+            <div style={{padding: "1rem"}}>
+                <div className="page-title">
+                    Share your music
                 </div>
-                <div>
+
+            <div className="homepage " id="">
+                <div className="homepage-grid">
                     <div className="bg-red">
                         <Link to="/join">
                         <button >Join a Room</button>
@@ -45,16 +47,17 @@ class Homepage extends Component{
                         <button >Create a Room</button>
                         </Link>
                     </div>
-                </div>
-                <div>
                     <div>
                         <Link to="/info">
                         <button >What is Connect?</button>
                         </Link>
                     </div>
                 </div>
+                <div>
+                    
+                </div>
             </div>
-            
+            </div>
         )
     }
 

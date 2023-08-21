@@ -51,19 +51,19 @@ class RoomJoinPage extends Component{
 
     render(){
         return(
-            <div>
-                <p>This is the Room Join Page</p>
+            <div className="page-body">
+                {/* <p className="page-title">Join a room</p> */}
                 <div>
                     <form>
-                        <div>
-                        <label>
+                        <div className="form-input">
                             <input
+                                placeholder="Room code"
+                                id="room-code"
                                 type="text"
                                 required="true"
                                 onChange={this.roomCodeEntered}
                             />
-                            Join a Room
-                        </label>
+                            <label for="room-code"> Enter room code</label>
                         </div>
                         <button type="submit" onClick={this.roomCodeSubmit}>Submit</button>
                     </form>

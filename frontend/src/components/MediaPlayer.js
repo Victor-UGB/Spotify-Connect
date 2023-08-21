@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import {BsFillPlayFill, BsFillPauseFill,} from "react-icons/bs"
+import {BiSkipNext} from "react-icons/bi"
 
 class MediaPlayer extends Component{
     constructor(props){
@@ -56,11 +58,22 @@ class MediaPlayer extends Component{
                     {this.props.duration}
                     {songProgress}
                 </div>
-                <div>
-                    <button onClick={this.props.is_playing? this.pauseSong: this.playSong}>{this.props.is_playing? "Pause" : "Play"}</button>
+                <div className="mediaplayer-control">
                     <div>
+                        <button 
+                            className="react-icon-btns" 
+                            onClick={this.props.is_playing? this.pauseSong: this.playSong}>
+                                {this.props.is_playing? 
+                                    <BsFillPauseFill className="react-icon-mediaplayer"/> 
+                                    : <BsFillPlayFill className="react-icon-mediaplayer"/>
+                                }
+                        </button></div>
+                    <div style={{display: "flex", alignItems: "center"}}>
                         <h7>{this.props.votes} {" / "} {this.props.votes_required}</h7>
-                        <button onClick={this.skipSong}>Next</button>
+                        <button className="react-icon-btns" 
+                            onClick={this.skipSong}>
+                                {<BiSkipNext className="react-icon-mediaplayer" style={{width: "4rem", height: "4rem"}}/>}
+                        </button>
                     </div>
                     
                 </div>

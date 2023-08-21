@@ -4,6 +4,7 @@ import {Navigate} from 'react-router-dom'
 import CreateRoomPage from './CreateRoomPage';
 import withRouter from './withRouter';
 import MediaPlayer from './MediaPlayer';
+import {AiFillSetting} from "react-icons/ai"
 
 
 class Room extends Component{
@@ -23,19 +24,12 @@ class Room extends Component{
         this.renderSettings= this.renderSettings.bind(this)
         this.getRoomDetails = this.getRoomDetails.bind(this)
         this.authenticateSpotify = this.authenticateSpotify.bind(this)
-        this.getCurrentSong = this.getCurrentSong.bind(this)
+        // this.getCurrentSong = this.getCurrentSong.bind(this)
         this.getRoomDetails();
     }
-    // red(){
-    //     console.log(this.state)
-    //     console.log(this.props)
-    // }
-    // componentDidMount(){
-    //     this.red()
-    // }
 
     componentDidMount(){
-        this.interval = setInterval(this.getCurrentSong, 1000)
+        // this.interval = setInterval(this.getCurrentSong, 1000)
     }
 
     componentWillUnmount(){
@@ -54,8 +48,11 @@ class Room extends Component{
                         updateCallback = {()=>{this.getRoomDetails}}
                     />
                 </div>
-                <div>
-                    <button onClick={() => this.updateShowSettings(false)}>
+                <div className='' style={{marginInline: "1rem"}}>
+                    <button 
+                        className='leave-room-button' 
+                        onClick={() => this.updateShowSettings(false)}
+                        >
                         Close
                     </button>
                 </div>
@@ -154,8 +151,8 @@ class Room extends Component{
     renderSettingsButton(){
         return(
             <div>
-                <button onClick={() => this.updateShowSettings(true)}>
-                    Settings
+                <button className="react-icon-btns" onClick={() => this.updateShowSettings(true)}>
+                    {<AiFillSetting className='react-icon-mediaplayer' style={{height: "2rem", width: "2rem"}}/>}
                 </button>
             </div>
         )
@@ -166,11 +163,17 @@ class Room extends Component{
             return this.renderSettings();
         }
         return(
-            <div>
-                <h3>{this.roomCode}</h3>
-                <p>Votes: {this.state.votesToSkip}</p>
+            <div className='bg-zinc-400 page-body'>
+                
+                <div 
+                    className='page-title' 
+                    style={{display:"flex", justifyContent: "space-between",}}>
+                    <h3 className=''>{this.roomCode}</h3>
+                    <p>Host: {this.state.isHost.toString()}</p>
+                </div>
+                <div className='page-body'>
+                <p className='text-red-400'>Votes to skip: {this.state.votesToSkip}</p>
                 <p>Guest Can Pause: {this.state.guestCanPause.toString()}</p>
-                <p>Host: {this.state.isHost.toString()}</p>
                 <div>
                     <div>Title 
                         {this.state.song.title}
@@ -178,19 +181,28 @@ class Room extends Component{
                     <div>Artists 
                         {this.state.song.artist}
                     </div>
-                    <div>
+                    {/* <div>
                         <button>Pause</button>
                         <button>Next</button>
-                    </div>
+                    </div> */}
                     <div>
                         <MediaPlayer {...this.state.song}/>
                     </div>
                 </div>
-                <div>
-                    <button onClick={this.leaveRoom} >Leave Room</button>
+                <div style={{position: "absolute", bottom: "2rem", right: "2rem", display:"flex", gap:"1rem", flexDirection:"column-reverse", alignItems: "end"}}>
+                <div 
+                    style={{display: "flex",}}>
+                    <button
+                        onClick={this.leaveRoom} 
+                        className='leave-room-button'
+                        >
+                        Leave Room
+                    </button>
                 </div>
 
                 {this.state.isHost ? this.renderSettingsButton() : ''}
+                </div>
+                </div>
             </div>
         )
     }

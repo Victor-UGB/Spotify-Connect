@@ -12,7 +12,9 @@ export default function Info(props){
     const [page, setPage] = useState(pages.JOIN);
 
     function joinInfo(){
-        return "Join Page";
+        return <div>
+            <div>Join Page</div>
+        </div>;
     }
 
     function createInfo(){
@@ -20,21 +22,33 @@ export default function Info(props){
     }
 
     return( 
-    <div>
+    <div className="page-body">
         <div>
-            What is Connect?
-        </div>
-        <div>
-            {page === pages.JOIN? joinInfo(): createInfo()}
-            <div>
-                <button onClick={() => setPage(pages.JOIN)}>Join</button>
-                <button onClick={() => setPage(pages.CREATE)}>Create</button>
-            </div>
-        </div>
-        <div>
-            <button onClick={() => navigate("/")}>
+            <button 
+                style={{backgroundColor: "transparent", border: "none", color: "whitesmoke"}}
+                onClick={() => navigate("/")}>
                 Back
             </button>
+        </div>
+        <div className="page-title">
+            What is Connect?
+        </div>
+        <div className="">
+        <div className="page-body">
+            {page === pages.JOIN? joinInfo(): createInfo()}
+            <div className="" style={{display: "flex", gap:"1rem", width: "100%", justifyContent: "space-between"}}>
+                <button
+                    onClick={() => setPage(pages.JOIN)} 
+                    style={{backgroundColor: "transparent", border: "none", color: "whitesmoke", padding: "1rem", width: "100%", borderBlockEnd: "white solid 2px"}}>
+                    Join
+                </button>
+                <button
+                    onClick={() => setPage(pages.CREATE)} 
+                    style={{backgroundColor: "transparent", border: "none", color: "whitesmoke", padding: "1rem", width: "100%", borderBlockEnd: "white solid 2px"}}>
+                    Create
+                </button>
+            </div>
+        </div>
         </div>
     </div>
     )
