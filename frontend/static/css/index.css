@@ -4,6 +4,7 @@
 
 :root {
     --primary-color: #3478db;
+    --secondary-color: #1f1f1f;
     --font-size: 16px;
     --primary-font: 'Arial', sans-serif;
     --secondary-font: 'Helvetica', sans-serif;
@@ -49,6 +50,7 @@ h1{
     padding: 1rem;
     font-size: 1rem;
     font-weight: 900;
+    color: #9c9ca2
 }
 
 .form-input{
@@ -106,9 +108,17 @@ form button{
     /* background-color: #1f1f1f;
     background: linear-gradient(to bottom right, #1f1f1f, #2b2168); */
     color: #dfdfdf;
-    border: whitesmoke solid 1px;
+    border: whitesmoke solid 2px;
 }
 
+.homepage-grid div button:hover{
+
+    background-color: #1f1f1f;
+    /* background-color: #1f1f1f;
+    background: linear-gradient(to bottom right, #1f1f1f, #2b2168); */
+    color: #dfdfdf;
+    border: whitesmoke solid 0px;
+}
 .homepage{
     height: 100%;
     width: 100%;
